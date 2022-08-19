@@ -10,6 +10,7 @@ export const aws = {
 }
 
 async function bootstrap() {
+    const PORT = process.env.PORT || 5000
     config.update({
         accessKeyId: aws.AWS_ACCESS_KEY,
         secretAccessKey: aws.AWS_ACCESS_KEY,
@@ -18,7 +19,7 @@ async function bootstrap() {
 
     const app = await NestFactory.create(AppModule);
     await app.enableCors();
-    await app.listen(process.env.PORT || 5000);
+    await app.listen(PORT);
 }
 
 bootstrap();
