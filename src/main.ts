@@ -2,11 +2,11 @@ import {NestFactory} from '@nestjs/core';
 import {AppModule} from './app.module';
 import {config} from "aws-sdk";
 
-export const aws={
-  AWS_BUCKET_NAME: 'superheroes-artem',
-  AWS_BUCKET_REGION: 'eu-central-1',
-  AWS_ACCESS_KEY: 'AKIA3JWXIZK4BL4EY6GF',
-  AWS_SECRET_KEY: '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',
+export const aws = {
+    AWS_BUCKET_NAME: 'superheroes-artem',
+    AWS_BUCKET_REGION: 'eu-central-1',
+    AWS_ACCESS_KEY: 'AKIA3JWXIZK4BL4EY6GF',
+    AWS_SECRET_KEY: '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',
 }
 
 async function bootstrap() {
@@ -17,7 +17,7 @@ async function bootstrap() {
     })
 
     const app = await NestFactory.create(AppModule);
-    app.enableCors();
+    await app.enableCors();
     await app.listen(5001);
 }
 
